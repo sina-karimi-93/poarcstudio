@@ -1,0 +1,223 @@
+{% extends 'base.html' %}
+{% block content %}
+    <!-- Language -->
+    <section class="py-3 pb-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-3 col-9 pb-1">
+                    <a href="{% url 'design_persian' design.id%}"
+                       class="btn text-white neon-btn btn-block font-weight-bold lang-btn1">فارسی</a>
+                </div>
+                <div class="col-sm-3 col-9">
+                    <a href="{% url 'design' design.id%}"
+                       class="btn text-white neon-btn btn-block font-weight-bold lang-btn2">English</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Alerts -->
+    {% include 'partials/_alerts.html' %}
+    <!-- designs -->
+    <section class="products py-5" id="designs">
+        <div class="container">
+
+            <div class="d-flex align-items-sm-end align-items-center justify-content-center pb-3">
+                <span class="design-title-icon"><i class="fas fa-home"></i></span>
+                <h1 class="text-uppercase pl-3 font-weight-bold prodcut-title-1">
+                    {{ design.title }}</h1>
+            </div>
+
+
+            <div class="row">
+                <!-- product -->
+                <div class="col-md-12 py-3">
+                    <div class="card">
+                        <!-- Photo main -->
+                        <img src="{{ design.photo_main.url }}" alt="" class="card-img">
+                        <div class="card-body text-center">
+
+
+                            <!-- Thumbnails -->
+                            <div class="row mb-5 thumbs">
+                                <!-- Photo 1 -->
+                                {% if design.photo_1 %}
+                                    <div class="col-2 mb-4 single-photo">
+                                        <a href="{{ design.photo_1.url }}" data-toggle="lightbox"
+                                           data-gallery="example-gallery">
+                                            <img src="{{ design.photo_1.url }}" alt="Photo_1" class="img-fluid">
+                                        </a>
+                                    </div>
+                                {% endif %}
+                                <!-- Photo 2 -->
+                                {% if design.photo_2 %}
+                                    <div class="col-2 mb-4 single-photo">
+                                        <a href="{{ design.photo_2.url }}" data-toggle="lightbox"
+                                           data-gallery="example-gallery">
+                                            <img src="{{ design.photo_2.url }}" alt="Photo_2" class="img-fluid">
+                                        </a>
+                                    </div>
+                                {% endif %}
+                                <!-- Photo 3 -->
+                                {% if design.photo_3 %}
+                                    <div class="col-2 mb-4 single-photo">
+                                        <a href="{{ design.photo_3.url }}" data-toggle="lightbox"
+                                           data-gallery="example-gallery">
+                                            <img src="{{ design.photo_3.url }}" alt="Photo_3" class="img-fluid">
+                                        </a>
+                                    </div>
+                                {% endif %}
+                                <!-- Photo 4 -->
+                                {% if design.photo_4 %}
+                                    <div class="col-2 mb-4 single-photo">
+                                        <a href="{{ design.photo_4.url }}" data-toggle="lightbox"
+                                           data-gallery="example-gallery">
+                                            <img src="{{ design.photo_4.url }}" alt="Photo_4" class="img-fluid">
+                                        </a>
+                                    </div>
+                                {% endif %}
+                                <!-- Photo 5 -->
+                                {% if design.photo_5 %}
+                                    <div class="col-2 mb-4 single-photo">
+                                        <a href="{{ design.photo_5.url }}" data-toggle="lightbox"
+                                           data-gallery="example-gallery">
+                                            <img src="{{ design.photo_5.url }}" alt="Photo_5" class="img-fluid">
+                                        </a>
+                                    </div>
+                                {% endif %}
+                                <!-- Photo 6 -->
+                                {% if design.photo_6 %}
+                                    <div class="col-2 mb-4 single-photo">
+                                        <a href="{{ design.photo_6.url }}" data-toggle="lightbox"
+                                           data-gallery="example-gallery">
+                                            <img src="{{ design.photo_6.url }}" alt="Photo_6" class="img-fluid">
+                                        </a>
+                                    </div>
+                                {% endif %}
+                                <!-- Photo 7 -->
+                                {% if design.photo_7 %}
+                                    <div class="col-2 mb-4 single-photo">
+                                        <a href="{{ design.photo_7.url }}" data-toggle="lightbox"
+                                           data-gallery="example-gallery">
+                                            <img src="{{ design.photo_7.url }}" alt="Photo_7" class="img-fluid">
+                                        </a>
+                                    </div>
+                                {% endif %}
+                                <!-- Photo 8 -->
+                                {% if design.photo_8 %}
+                                    <div class="col-2 mb-4 single-photo">
+                                        <a href="{{ design.photo_8.url }}" data-toggle="lightbox"
+                                           data-gallery="example-gallery">
+                                            <img src="{{ design.photo_8.url }}" alt="Photo_8" class="img-fluid">
+                                        </a>
+                                    </div>
+                                {% endif %}
+                                <!-- Photo 9 -->
+                                {% if  design.photo_9 %}
+                                    <div class="col-2 mb-4 single-photo">
+                                        <a href="{{ design.photo_9.url }}" data-toggle="lightbox"
+                                           data-gallery="example-gallery">
+                                            <img src="{{ design.photo_9.url }}" alt="Photo_9" class="img-fluid">
+                                        </a>
+                                    </div>
+                                {% endif %}
+                                <!-- Photo 10 -->
+                                {% if design.photo_10 %}
+                                    <div class="col-2 mb-4">
+                                        <a href="{{ design.photo_10.url }}" data-toggle="lightbox"
+                                           data-gallery="example-gallery">
+                                            <img src="{{ design.photo_10.url }}" alt="Photo_10" class="img-fluid">
+                                        </a>
+                                    </div>
+                                {% endif %}
+                                <!-- Photo 11 -->
+                                {% if design.photo_11 %}
+                                    <div class="col-2 mb-4 single-photo">
+                                        <a href="{{ design.photo_11.url }}" data-toggle="lightbox"
+                                           data-gallery="example-gallery">
+                                            <img src="{{ design.photo_11.url }}" alt="Photo_11" class="img-fluid">
+                                        </a>
+                                    </div>
+                                {% endif %}
+                                <!-- Photo 12 -->
+                                {% if design.photo_12 %}
+                                    <div class="col-2 mb-4 single-photo">
+                                        <a href="{{ design.photo_12.url }}" data-toggle="lightbox"
+                                           data-gallery="example-gallery">
+                                            <img src="{{ design.photo_12.url }}" alt="Photo_12" class="img-fluid">
+                                        </a>
+                                    </div>
+                                {% endif %}
+
+                            </div>
+                            <!-- Card Body -->
+                            <hr>
+                            <div class="d-flex justify-content-around flex-wrap align-items-center">
+                                <h6 class="text-capitalize font-weight-bold align-self-baseline">
+                                    <span class="footer-icon">
+                                        <i class="far fa-calendar-alt">
+                                        </i>
+                                    </span>
+                                    {{ design.design_date|date }}
+                                </h6>
+
+                                <h3 class="text-capitalize">
+                                    <span class="footer-icon"><i class="fa fa-cog"></i></span>
+                                    <a class="btn font-weight-bold px-1" data-toggle="popover"
+                                       data-placement="bottom"
+                                       data-content="{{ design.software_tool }}">SOFTWARES (click me)</a>
+                                </h3>
+                            </div>
+                            <hr>
+                            <h2 class="font-weight-bold py-3">Description</h2>
+                            <p>
+                                {{ design.description }}
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="{% url 'designs' %}" class="text-white btn neon-btn btn-block">Designs</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- End product -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Message -->
+    <section class="message py-5" id="message">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-md-8">
+                    <h5 class="text-uppercase pb-4 font-weight-bold prodcut-title-1">Send Message About This Worksheet
+                    </h5>
+                    <form method="post">
+                        {% csrf_token %}
+                        <input type="text" required name="name" class="form-control mb-1" placeholder="Name">
+                        <input type="email" required name="email" class="form-control mb-1" placeholder="Email">
+                        <textarea name="message" required id="" cols="30" rows="10" class="form-control mb-1"
+                                  placeholder="Message"></textarea>
+                        <button type="submit" class="btn neon-btn btn-block text-white">Submit</button>
+                    </form>
+                </div>
+                <!-- Designer -->
+                <div class="col-md-3 pt-lg-2 pt-4">
+                    <h5 class="font-weight-bold text-uppercase text-white">architect</h5>
+                    <div class="card mt-4">
+                        <!-- <h5>Designer</h5> -->
+                        <img src="{{ design.designer.photo.url }}" class="card-img img-fluid designer-img" alt="">
+                        <div class="card-body">
+                            <h6 class="font-weight-bold text-uppercase">{{ design.designer.name }}</h6>
+                        </div>
+                        <div class="card-footer">
+                            <a href="{% url 'designers' %}#{{ design.designer.id }}"
+                               class="btn neon-btn btn-block text-white">Portfolio</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+{% endblock %}

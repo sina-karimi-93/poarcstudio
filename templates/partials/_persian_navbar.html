@@ -1,0 +1,47 @@
+<!-- nav -->
+<section class="nav-section sticky-top">
+    <nav class="nav navbar-expand-lg justify-content-between">
+        <div class="nav-brand d-flex">
+            <h2 class="text-uppercase font-weight-bold nav-title-studio">studio</h2>
+
+            <a href="{% url 'persian_home' %}" class="d-flex nav-link py-0 my-0">
+                <h2 class="text-uppercase font-weight-bold nav-title">c</h2>
+                <h2 class="text-uppercase font-weight-bold nav-title1">r</h2>
+                <h2 class="text-uppercase font-weight-bold nav-title2">a</h2>
+                <h2 class="text-uppercase font-weight-bold nav-title3">o</h2>
+                <h2 class="text-uppercase font-weight-bold nav-title4">p</h2>
+            </a>
+        </div>
+
+        <button class="navbar-toggler" data-target="#myNav" data-toggle="collapse" type="button">
+                <span class="navbar-icon">
+                    <i class="fas fa-bars"></i>
+                </span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="myNav">
+            <ul class="navbar-nav  align-items-center">
+                <li class="navbar-item px-2"><a href="{% url 'persian_home' %}" class="nav-link text-capitalize nav-items">خانه</a></li>
+
+                <li class="navbar-item px-2"><a href="{% url 'designs_persian' %}" class="nav-link text-capitalize nav-items">طراحی
+                    ها
+                </a>
+                </li>
+
+                <li class="navbar-item px-2"><a href="{% url 'designers_persian' %}"
+                                                class="nav-link text-capitalize nav-items">پورتفولیو
+                </a>
+                </li>
+
+                <li class="navbar-item px-2"><a href="{% url 'registration_persian' %}"
+                                                class="nav-link text-capitalize nav-items">ثبت پروژه</a>
+                </li>
+
+                <li class="navbar-item px-2"><a href="{% url 'persian_home' %}#contact"
+                                                class="nav-link text-capitalize nav-items">تماس با ما</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+</section>

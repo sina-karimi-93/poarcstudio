@@ -1,0 +1,112 @@
+{% extends 'base_persian.html' %}
+{% block persian %}
+    <!-- Language -->
+    <section class="py-3 pb-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-3 col-9 pb-1">
+                    <a href="{% url 'designs_persian' %}"
+                       class="btn text-white neon-btn btn-block font-weight-bold lang-btn1">فارسی</a>
+                </div>
+                <div class="col-sm-3 col-9">
+                    <a href="{% url 'designs' %}"
+                       class="btn text-white neon-btn btn-block font-weight-bold lang-btn2">English</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- designs -->
+    <section class="products pt-5 pb-4" id="designs">
+        <div class="container-fluid">
+
+            <div class="d-flex justify-content-center pb-5">
+                <h1 class="text-uppercase px-1 font-weight-bold product-title-2">طرح های</h1>
+                <h1 class="text-uppercase px-1 font-weight-bold prodcut-title-1">ما</h1>
+
+            </div>
+
+
+            <div class="row justify-content-center">
+                <!-- product -->
+                {% for design in designs %}
+                    <div class="col-lg-3 col-sm-6 col-10 col-10 py-3">
+
+                        <div class="card">
+                            <img src="{{ design.photo_main.url }}" alt="" class="card-img product-img position-relative">
+                            <span class="ml-3 p-1 bg-danger text-white position-absolute">{{ forloop.counter }}</span>
+                            <!-- card header -->
+                            <div class="card-header pb-0">
+
+                                <h6 class="text-uppercase font-weight-bold">
+                                    <span class="product-icon"><i class="fas fa-home"></i></span>
+                                    {{ design.عنوان }}
+                                </h6>
+                                <h5 class="text-capitalize font-weight-bold">
+                                    <span class="product-icon"><i class="fa fa-cog"></i></span>
+                                    <a class="btn font-weight-bold px-1" data-toggle="popover" data-placement="bottom"
+                                       data-content="{{ design.software_tool }}">نرم افزارها (کلیک کنید)</a>
+                                </h5>
+                            </div>
+                            <!-- card body -->
+                            <div class="card-body designs-card-body text-center">
+                                <p>{{ design.توضیحات|truncatewords:10 }}</p>
+                            </div>
+                            <!-- card footer -->
+                            <div class="card-footer">
+                                <a href="{% url 'design_persian' design.id %}"
+                                   class="btn text-white neon-btn btn-block">مشاهده جزییات</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+
+                <!-- End product -->
+            </div>
+            <div class="row pt-4">
+                <div class="col-md-12 d-flex justify-content-center">
+                    {% if designs.has_other_pages %}
+                        <ul class="pagination">
+                            {% if designs.has_previous %}
+                                <li class="page-item">
+                                    <a href="?page={{ designs.previous_page_number }}" class="page-link">
+                                        &laquo;
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="page-item disabled">
+                                    <a class="page-link">&laquo;</a>
+                                </li>
+                            {% endif %}
+                            {% for i in designs.paginator.page_range %}
+                                {% if i <= designs.number|add:2 and i >= designs.number|add:-2 %}
+                                    {% if designs.number == i %}
+                                        <li class="page-item active-page">
+                                            <a class="page-link active-page">{{ i }}</a>
+                                        </li>
+                                    {% else %}
+                                        <li class="page-item">
+                                            <a href="?page={{ i }}" class="page-link">{{ i }}</a>
+                                        </li>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                            {% if designs.has_next %}
+                                <li class="page-item">
+                                    <a href="?page={{ designs.next_page_number }}" class="page-link">
+                                        &raquo;
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="page-item disabled">
+                                    <a class="page-link">&raquo;</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

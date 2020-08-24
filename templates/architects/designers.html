@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block content %}
+    <!-- Language -->
+    <section class="py-3 pb-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-3 col-9 pb-1">
+                    <a href="{% url 'designers_persian' %}"
+                       class="btn text-white neon-btn btn-block font-weight-bold lang-btn1">فارسی</a>
+                </div>
+                <div class="col-sm-3 col-9">
+                    <a href="{% url 'designers' %}"
+                       class="btn text-white neon-btn btn-block font-weight-bold lang-btn2">English</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Portfolio -->
+    <section class="portfolio">
+        <div class="container">
+            {% for designer in designers %}
+                <div class="row justify-content-center py-4" id="{{ designer.id }}">
+                    <div class="col-10 col-lg-6 ">
+                        <img src="{{ designer.photo.url }}" alt="" class="img-fluid py-2 position-relative">
+                    </div>
+                    <div class="col-10 col-lg-6">
+                        <div class="card">
+                            <div class="card-header ">
+                                <h1 class="font-weight-bold text-center">Designer</h1>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="font-weight-bold text-center bg-warning rounded pb-1">Full Name </h5>
+                                <h5 class="text-center">{{ designer.name }}</h5>
+                                <hr>
+
+                                <h5 class="font-weight-bold text-center bg-warning rounded pb-1">Education </h5>
+                                <h5 class="text-center">{{ designer.education }}</h5>
+                                <hr>
+
+                                <h5 class="font-weight-bold text-center bg-warning rounded pb-1">Background</h5>
+                                <h5 class="text-center">{{ designer.background }}
+                                </h5>
+                                <hr>
+
+                                <h5 class="font-weight-bold text-center bg-warning rounded pb-1">Software Tools</h5>
+                                <h5>{{ designer.software_tools }}</h5>
+                                <hr>
+                                <h5 class="text-center">
+                                    <span class="contact-icon"><i class="fas fa-mobile"></i></span>
+                                    : {{ designer.phone }} </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="bg-light">
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+

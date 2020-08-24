@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block content %}
+    <!-- Language -->
+    <section class="py-3 pb-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-3 col-9 pb-1">
+                    <a href="{% url 'registration_persian' %}"
+                       class="btn text-white neon-btn btn-block font-weight-bold lang-btn1">فارسی</a>
+                </div>
+                <div class="col-sm-3 col-9">
+                    <a href="{% url 'registration' %}"
+                       class="btn text-white neon-btn btn-block font-weight-bold lang-btn2">English</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Alerts -->
+    {% include 'partials/_alerts.html' %}
+    <section class="site-content pt-5">
+        <div class="container">
+            <div class="d-flex justify-content-center flex-wrap pb-5 ">
+                <h1 class="text-uppercase px-1 font-weight-bold prodcut-title-1 ">project</h1>
+                <h1 class="text-uppercase px-1 font-weight-bold product-title-2 ">registration</h1>
+            </div>
+            <!-- Form -->
+            <div class="row">
+                <div class="col-12">
+                    <form method="post">
+                        {% csrf_token %}
+                        <!-- Fields -->
+                        <div class="row ">
+                            <div class="col-md-6">
+                                <input type="text" required name="yourname" class="form-control my-1"
+                                       placeholder="Your Name">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" required name="location" class="form-control my-1" placeholder="Location">
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-md-6">
+                                <input type="text" required name="phone" class="form-control my-1" placeholder="Phone">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" required name="email" class="form-control my-1" placeholder="E-mail">
+
+                            </div>
+                        </div>
+                        <!-- Software Used -->
+                        <div class="row justify-content-center py-2">
+                            <div class="col-lg-2 col-6 d-flex align-items-center">
+                                <input type="checkbox" class="px-3 " value="3dsMax" name="3dsmax">
+                                <h5 class="text-white pl-3 pr-5 text-capitalize">3DsMax</h5>
+                            </div>
+
+                            <div class="col-lg-2 col-6 d-flex align-items-center">
+                                <input type="checkbox" class="px-3" value="Revit" name="revit">
+                                <h5 class="text-white pl-3 pr-5 text-capitalize">Revit</h5>
+                            </div>
+
+                            <div class="col-lg-2 col-6 d-flex align-items-center">
+                                <input type="checkbox" class="px-3" value="Photoshop" name="photoshop">
+                                <h5 class="text-white pl-3 pr-5 text-capitalize">Photoshop</h5>
+                            </div>
+
+                            <div class="col-lg-2 col-6 d-flex align-items-center">
+                                <input type="checkbox" class="px-3" value="Lumion" name="lumion">
+                                <h5 class="text-white pl-3 pr-5 text-capitalize">Lumion</h5>
+                            </div>
+
+                            <div class="col-lg-2 col-12 d-flex align-items-center">
+                                <input type="checkbox" class="px-3" value="Autocad" name="autocad">
+                                <h5 class="text-white pl-3 pr-5 text-capitalize">Autocad</h5>
+                            </div>
+                        </div>
+                        <!-- Description -->
+                        <textarea required class="form-control my-2" name="description" id="" cols="30" rows="10"
+                                  placeholder="Description"></textarea>
+                        <!-- Submit -->
+                        <button type="submit"
+                                class="font-weight-bold btn text-white neon-btn btn-block py-2 my-3">Submit
+                            Project
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

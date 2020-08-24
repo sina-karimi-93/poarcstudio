@@ -1,0 +1,59 @@
+{% extends 'base_persian.html' %}
+{% block persian %}
+    <!-- Language -->
+    <section class="py-3 pb-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-3 col-9 pb-1">
+                    <a href="{% url 'designers_persian' %}"
+                       class="btn text-white neon-btn btn-block font-weight-bold lang-btn1">فارسی</a>
+                </div>
+                <div class="col-sm-3 col-9">
+                    <a href="{% url 'designers' %}"
+                       class="btn text-white neon-btn btn-block font-weight-bold lang-btn2">English</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Portfolio -->
+    <section class="portfolio">
+        <div class="container">
+            {% for designer in persian_designer %}
+                <div class="row justify-content-center py-4" id="{{ designer.id }}">
+                    <div class="col-10 col-lg-6 ">
+                        <img src="{{ designer.photo.url }}" alt="" class="img-fluid py-2">
+                    </div>
+                    <div class="col-10 col-lg-6">
+                        <div class="card">
+                            <div class="card-header ">
+                                <h1 class="font-weight-bold text-center">طراح</h1>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="font-weight-bold text-center bg-warning rounded pb-1">اسم</h5>
+                                <h5 class="text-center">{{ designer.اسم }}</h5>
+                                <hr>
+
+                                <h5 class="font-weight-bold text-center bg-warning rounded pb-1">تحصیلات</h5>
+                                <h5 class="text-center">{{ designer.تحصیلات }}</h5>
+                                <hr>
+
+                                <h5 class="font-weight-bold text-center bg-warning rounded pb-1">سابقه</h5>
+                                <h5 class="text-center">{{ designer.سابقه }}
+                                </h5>
+                                <hr>
+
+                                <h5 class="font-weight-bold text-center bg-warning rounded pb-1">مسلط به نرم افزارهای</h5>
+                                <h5>{{ designer.مسلط_به_نرم_افزار_های }}</h5>
+                                <hr>
+                                <h5 class="text-center">
+                                    <span class="contact-icon"><i class="fas fa-mobile"></i></span>
+                                    : {{ designer.موبایل }} </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="bg-light">
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

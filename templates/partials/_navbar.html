@@ -1,0 +1,48 @@
+<!-- nav -->
+<section class="nav-section">
+    <nav class="nav navbar-expand-lg justify-content-between">
+        <div class="nav-brand d-flex">
+            <a href="/" class="d-flex nav-link py-0 my-0">
+                <h2 class="text-uppercase font-weight-bold nav-title">p</h2>
+                <h2 class="text-uppercase font-weight-bold nav-title1">o</h2>
+                <h2 class="text-uppercase font-weight-bold nav-title2">a</h2>
+                <h2 class="text-uppercase font-weight-bold nav-title3">r</h2>
+                <h2 class="text-uppercase font-weight-bold nav-title4">c</h2>
+            </a>
+            <h2 class="text-uppercase font-weight-bold nav-title-studio">studio</h2>
+        </div>
+
+        <button class="navbar-toggler" data-target="#myNav" data-toggle="collapse" type="button">
+                <span class="navbar-icon">
+                    <i class="fas fa-bars"></i>
+                </span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="myNav">
+            <ul class="navbar-nav  align-items-center">
+                <li class="navbar-item px-2"><a href="/" class="nav-link text-capitalize nav-items">Home</a></li>
+
+                <li class="navbar-item px-2"><a href="{% url 'designs' %}"
+                                                class="nav-link text-capitalize nav-items">Designs
+                </a>
+                </li>
+
+                <li class="navbar-item px-2"><a href="{% url 'designers' %}"
+                                                class="nav-link text-capitalize nav-items">portfolio
+                </a>
+                </li>
+
+                <li class="navbar-item px-2"><a href="{% url 'registration' %}"
+                                                class="nav-link text-capitalize nav-items">Project
+                    registration</a>
+                </li>
+
+                <li class="navbar-item px-2"><a href="/#contact"
+                                                class="nav-link text-capitalize nav-items">Contact
+                    Us</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+</section>

@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% block content %}
+    <!-- Language -->
+    <section class="py-3 pb-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-3 col-9 pb-1">
+                    <a href="{% url 'persian_home' %}"
+                       class="btn text-white neon-btn btn-block font-weight-bold lang-btn1">فارسی</a>
+                </div>
+                <div class="col-sm-3 col-9">
+                    <a href="{% url 'home' %}"
+                       class="btn text-white neon-btn btn-block font-weight-bold lang-btn2">English</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Head -->
+    <section class="hd" id="head">
+        <section class="head">
+            <div class="container">
+                <div class="row my-5">
+                    <div class="col-12">
+                        <!-- Alerts -->
+                        {% include 'partials/_alerts.html' %}
+                    </div>
+                </div>
+                <div class="row align-items-center pt-5">
+                    <div class="col-md-9 text-right">
+                        <h2 class="text-capitalize header-title">with</h2>
+                        <h1 class="text-uppercase ne p-1 font-weight-bold header-poarc">poarc</h1>
+                        <h1 class="text-uppercase p-1 font-weight-bold text-white header-studio">studio</h1>
+                        <h1 class="text-capitalize header-title">make your dreams</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <!-- About Us -->
+    <section class="work py-5" id="about">
+        <div class="container">
+            <div class="d-flex flex-wrap justify-content-center pb-5">
+                <h1 class="text-uppercase px-1 font-weight-bold prodcut-title-1">about</h1>
+                <h1 class="text-uppercase px-1 font-weight-bold product-title-2">us</h1>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p class="work-paragraph  txt-justify">{% for section in home %}
+                        {{ section.about_us }}
+                    {% endfor %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us -->
+    <section class="contacts-us py-5" id="contact">
+        <div class="container">
+            <div class="d-flex flex-wrap justify-content-center pb-5">
+                <h1 class="text-uppercase px-1 font-weight-bold prodcut-title-1">Contact</h1>
+                <h1 class="text-uppercase px-1 font-weight-bold product-title-2">Us</h1>
+            </div>
+
+            <div class="row contact-row ">
+                <div class="col-lg-6 justify-content-center">
+                    <h3 class="text-capitalize text-center py-3 contact-info"><span class="contact-icon"><i
+                            class="fas fa-mobile"></i></span>
+                        {% for section in home %}
+                            {{ section.phone }}
+                        {% endfor %}
+                    </h3>
+                    <h3 class="text-capitalize text-center py-3 contact-info"><span class="contact-icon"><i
+                            class="fas fa-home"></i></span>
+                        {% for section in home %}
+                            {{ section.office_phone }}
+                        {% endfor %}</h3>
+                    <h5 class=" py-3 text-center contact-info">
+                        {% for section in home %}
+                            {{ section.address }}
+                        {% endfor %}</h5>
+                    <h3 class=" py-3 text-center contact-info"><span class="contact-icon"><i
+                            class="fa fa-at"></i></span>
+                        {% for section in home %}
+                            {{ section.email }}
+                        {% endfor %}</h3>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d803.9638050052026!2d59.60000952924345!3d36.29156267970474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f6c91187433731d%3A0x9e49f6d69ff5c91a!2zUmF6YXZpIEtob3Jhc2FuIFByb3ZpbmNlLCBNYXNoaGFkLCDZhdiv2LHYsyA02IwgSXJhbg!5e0!3m2!1sen!2s!4v1590028559911!5m2!1sen!2s"
+                            width="300" height="250" frameborder="0" style="border:3px solid #FF9208;"
+                            allowfullscreen=""
+                            aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Message -->
+    <section class="py-5" id="message">
+        <div class="container message">
+            <div class="d-flex flex-wrap justify-content-center pb-5">
+                <h1 class="text-uppercase px-1 font-weight-bold prodcut-title-1">Send</h1>
+                <h1 class="text-uppercase px-1 font-weight-bold product-title-2">Message</h1>
+            </div>
+            <!-- Form -->
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-11 pb-5">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form }}
+                        <button type="submit" class="btn neon-btn btn-block">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container-fluid d-flex justify-content-center p-0">
+        {% for section in home %}
+            {% if section.site_develoepr %}
+                <p class="developer px-0">
+                    <a class="btn text-white developer" data-toggle="popover" data-placement="top" data-content="Designed and Developed by
+     Sina Karimi">Site Developer</a>
+                </p>
+            {% endif %}
+        {% endfor %}
+        <p class="developer text-white align-self-center pr-2">© 2020 Poarc Studio</p>
+    </div>
+{% endblock %}

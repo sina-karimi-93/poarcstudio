@@ -1,0 +1,103 @@
+{% extends 'base_persian.html' %}
+{% block persian %}
+    <!-- Language -->
+    <section class="py-3 pb-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-3 col-9 pb-1">
+                    <a href="{% url 'persian_home' %}"
+                       class="btn text-white neon-btn btn-block font-weight-bold lang-btn1">فارسی</a>
+                </div>
+                <div class="col-sm-3 col-9">
+                    <a href="{% url 'home' %}"
+                       class="btn text-white neon-btn btn-block font-weight-bold lang-btn2">English</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- head -->
+    <section class="hd" id="head">
+        <section class="head">
+            <div class="container-fluid">
+                <div class="row align-items-center pt-5">
+                    <div class="col-md-9 text-right">
+                        <h2 class="text-capitalize header-title">with</h2>
+                        <h1 class="text-uppercase ne p-1 font-weight-bold header-poarc">poarc</h1>
+                        <h1 class="text-uppercase p-1 font-weight-bold text-white header-studio">studio</h1>
+
+                        <h1 class="text-capitalize header-title">make your dreams</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    {% for section in persian_home %}
+        <!-- About Us -->
+        <section class="work py-5" id="about">
+            <div class="container">
+                <div class="d-flex flex-wrap justify-content-center pb-5">
+                    <h1 class="text-uppercase px-1 font-weight-bold product-title-2">درباره</h1>
+                    <h1 class="text-uppercase px-1 font-weight-bold prodcut-title-1">ما</h1>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <p class="work-paragraph text-center">{{ section.درباره_ما }}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- contact us -->
+        <section class="contacts-us py-5" id="contact">
+            <div class="container">
+                <div class="d-flex flex-wrap justify-content-center pb-5">
+                    <h1 class="text-uppercase px-1 font-weight-bold product-title-2">تماس</h1>
+                    <h1 class="text-uppercase px-1 font-weight-bold prodcut-title-1">با ما</h1>
+                </div>
+                <div class="row contact-row ">
+                    <div class="col-lg-6 justify-content-center">
+                        <h3 class="text-capitalize text-center py-3 contact-info"><span class="contact-icon"><i
+                                class="fas fa-mobile"></i></span>
+                            {{ section.موبایل }}
+                        </h3>
+                        <h3 class="text-capitalize text-center py-3 contact-info"><span class="contact-icon"><i
+                                class="fas fa-home"></i></span>
+                            {{ section.تلفن_شرکت }}</h3>
+                        <h5 class=" py-3 text-center contact-info">
+                            {{ section.آدرس }}</h5>
+                        <h3 class=" py-3 text-center contact-info"><span class="contact-icon"><i
+                                class="fa fa-at"></i></span>
+                            {{ section.ایمیل }}</h3>
+                    </div>
+                    <div class="col-lg-6 text-center">
+                        <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d803.9638050052026!2d59.60000952924345!3d36.29156267970474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f6c91187433731d%3A0x9e49f6d69ff5c91a!2zUmF6YXZpIEtob3Jhc2FuIFByb3ZpbmNlLCBNYXNoaGFkLCDZhdiv2LHYsyA02IwgSXJhbg!5e0!3m2!1sen!2s!4v1590028559911!5m2!1sen!2s"
+                                width="300" height="250" frameborder="0" style="border:3px solid #FF9208;"
+                                allowfullscreen=""
+                                aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Message -->
+        <section class="py-5" id="message">
+            <div class="container message">
+                <div class="d-flex flex-wrap justify-content-center pb-5">
+                    <h1 class="text-uppercase px-1 font-weight-bold product-title-2">ارسال</h1>
+                    <h1 class="text-uppercase px-1 font-weight-bold prodcut-title-1">پیام</h1>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-8 col-11 pb-5">
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form }}
+                            <button type="submit" class="btn neon-btn btn-block">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="container-fluid d-flex justify-content-center p-0">
+            <p class="developer text-white align-self-center pr-2"> 2020 Poarc Studio ©</p>
+        </div>
+    {% endfor %}
+{% endblock %}
